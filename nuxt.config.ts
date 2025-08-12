@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-configt
-import tailwindcss from "@tailwindcss/vite";
-
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: {
@@ -10,12 +8,15 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+  runtimeConfig: {
+    easyDonateApiKey: process.env.EASY_DONATE_API_KEY, // только на сервере
   },
-  css: ["~/assets/css/input.css"],
+
+  tailwindcss: {
+    viewer: { endpoint: "/_tailwind", exportViewer: true },
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.ts", // путь к твоему конфигу
+  },
 
   modules: [
     "@nuxt/devtools",
@@ -24,7 +25,6 @@ export default defineNuxtConfig({
     "@nuxt/ui-pro",
     "@nuxt/image",
     "@nuxtjs/robots",
-    "@tailwindcss/postcss",
-    "@tailwindcss/vite",
+    "@nuxtjs/tailwindcss",
   ],
 });

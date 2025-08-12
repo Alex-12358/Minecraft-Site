@@ -12,7 +12,7 @@ const toggleMobile = () => (isMobileOpen.value = !isMobileOpen.value);
       <!-- Лого -->
       <NuxtLink
         to="/"
-        class="text-2xl font-extrabold bg-mech-gradient bg-clip-text text-transparent hover:scale-105 hover:brightness-110 transition-transform duration-300"
+        class="text-2xl font-extrabold bg-gradient-to-r from-[#e43b35] via-[#f45729] to-[#ffcc00] bg-clip-text text-transparent hover:scale-105 hover:brightness-110 transition-transform duration-300"
       >
         Elderveil
       </NuxtLink>
@@ -23,7 +23,7 @@ const toggleMobile = () => (isMobileOpen.value = !isMobileOpen.value);
           v-for="item in menu"
           :key="item.name"
           :to="item.to"
-          class="relative font-medium text-gray-700 dark:text-gray-300 hover:text-mechRed dark:hover:text-mechOrange transition-colors group"
+          class="relative font-medium text-gray-700 dark:text-gray-300 hover:text-[#e43b35] dark:hover:text-[#f45729] transition-colors group"
         >
           {{ item.name }}
           <!-- Градиентная полоска -->
@@ -38,20 +38,7 @@ const toggleMobile = () => (isMobileOpen.value = !isMobileOpen.value);
         <ColorModeButton />
 
         <!-- Скачать лаунчер (desktop only) -->
-        <NuxtLink to="/launcher" class="hidden md:block">
-          <button
-            class="group relative inline-flex items-center gap-2 rounded-md px-4 py-2 bg-blue-600 text-white dark:bg-blue-500 dark:text-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
-          >
-            <UIcon
-              name="i-lucide-download"
-              class="w-5 h-5 transition-transform duration-300 group-hover:rotate-[-15deg]"
-            />
-            <span class="font-semibold">Скачать лаунчер</span>
-            <span
-              class="absolute -inset-0.5 rounded-md blur-sm opacity-20 group-hover:opacity-40 bg-blue-400 dark:bg-blue-300 transition-opacity duration-300 -z-10"
-            />
-          </button>
-        </NuxtLink>
+        <DownloadPCButton />
 
         <!-- Mobile toggle -->
         <button

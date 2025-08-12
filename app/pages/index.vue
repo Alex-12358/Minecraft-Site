@@ -8,3 +8,8 @@
     четыри пять шесть 
   </div>
 </template>
+
+<script setup lang="ts">
+const { data: servers } = await useFetch('/api/servers')
+console.log(servers.value)
+</script>

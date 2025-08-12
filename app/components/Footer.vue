@@ -18,8 +18,8 @@
           <li v-for="item in menu" :key="item.name">
             <NuxtLink
               :to="item.to"
-              class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition"
-            >
+             class="relative font-medium text-gray-700 dark:text-gray-300 hover:text-[#e43b35] dark:hover:text-[#f45729] transition-colors group"
+        >
               {{ item.name }}
             </NuxtLink>
           </li>
